@@ -89,12 +89,12 @@ const TrendingArticlesSlider = () => {
               </div>
               {/* article content */}
               <div className="text-center md:text-left">
-                <h1 className=" text-xl md:text-2xl lg:text-3xl xl:text-5xl font-bold text-light-text py-2 lg:py-3">
-                  {item?.articleTitle?.split(" ").slice(0, 150).join(" ")}
+                <h1 className=" text-xl lg:text-xl xl:text-2xl 2xl:text-[45px] font-bold text-light-text py-2">
+                  {item?.articleTitle?.split(" ").slice(0, 50).join(" ")}
                 </h1>
 
-                <p className="text-light-text/70 text-sm font-primary md:font-medium md:text-xl  xl:text-2xl lg:py-3 xl:py-4">
-                   {item?.descriptions?.split(" ").slice(0, 200).join(" ") + "..."}
+                <p className="text-light-text/70 text-sm font-primary md:font-medium xl:text-xl  lg:py-2">
+                   {item?.descriptions?.split(" ").slice(0, 50).join(" ") + "..."}
                 </p>
               </div>
               {/* read more button */}

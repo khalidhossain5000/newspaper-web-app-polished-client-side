@@ -3,12 +3,13 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Chart } from "react-google-charts";
 import Loading from "../../Shared/Loading/Loading";
-const barData = [
-  ["Status", "Articles"],
-  ["Approved", 20],
-  ["Pending", 10],
-  ["Declined", 5],
-];
+import useAxios from "../../../Hooks/useAxios";
+// const barData = [
+//   ["Status", "Articles"],
+//   ["Approved", 20],
+//   ["Pending", 10],
+//   ["Declined", 5],
+// ];
 
 const areaData = [
   ["Month", "Visitors"],
@@ -21,6 +22,7 @@ const areaData = [
 ];
 const PublisherChart = () => {
   const axiosSecure = useAxiosSecure();
+  const axiosInstance=useAxios()
   // 🔄 fetch publisher-wise article count
   const { data = [], isLoading } = useQuery({
     queryKey: ["publisherStats"],
@@ -30,6 +32,17 @@ const PublisherChart = () => {
     },
   });
  
+
+// BAR CHART
+const { articlestat = [],  } = useQuery({
+  queryKey: ["approvalStatussd"],
+  queryFn: async () => {
+    const res = await axiosInstance.get("/api/article-status"); // তোমার backend route
+    return res.data; // [["Status","Count"],["approved",11],["declined",1]]
+  },
+});
+
+console.log(articlestat,"count");
   if (isLoading) return <Loading/>;
   // 🛠️ Pie chart format
   const chartData = [["Publisher", "Articles"]];
@@ -44,7 +57,7 @@ const PublisherChart = () => {
     pieSliceText: "percentage",
     slices: {},
   };
-
+// BAR CHART DATA 
   //bar options
   const barOptions = {
     title: "Article Approval Status",
@@ -83,7 +96,7 @@ const PublisherChart = () => {
           chartType="ColumnChart"
           width="100%"
           height="400px"
-          data={barData}
+          data={articlestat}
           options={barOptions}
         />
       </div>

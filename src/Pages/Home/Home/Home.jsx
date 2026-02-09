@@ -38,6 +38,7 @@ const Home = () => {
       </div>
       <div className="">
         <div>
+          
           <Publishers />
           <LatestNews />
           <Plans />
@@ -49,7 +50,7 @@ const Home = () => {
       </div>
 
       <div className="relative z-[9999999999999]">
-        {/* modal এখানেই রাখবে */}
+        
       <Modal
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}

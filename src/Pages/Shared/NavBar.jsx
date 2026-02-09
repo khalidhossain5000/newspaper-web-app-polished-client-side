@@ -113,6 +113,7 @@ const NavBar = () => {
           : "bg-light-accent/5 dark:bg-gradient-to-r dark:bg-dark-primary/30 py-3 lg:py-4 xl:py-5"
       }`}
     >
+      
       <div className="container mx-auto ">
         <div className="hidden lg:flex items-center justify-between">
           {/* logo of the site */}

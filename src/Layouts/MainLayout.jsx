@@ -4,6 +4,7 @@ import { Outlet, useNavigation } from "react-router";
 import Loading from "../Pages/Shared/Loading/Loading";
 import { PropagateLoader } from "react-spinners";
 import Footer from "../Pages/Shared/Footer/Footer";
+import BreakingNews from "../Pages/Home/BreakingNews/BreakingNews";
 
 const MainLayout = () => {
   const { state } = useNavigation();
@@ -25,6 +26,8 @@ const MainLayout = () => {
   return (
     <div>
       <header>
+
+        {/* <BreakingNews/> */}
         <NavBar></NavBar>
       </header>
       <main className="overflow-x-hidden">{state === "loading" ? <Loading /> : <Outlet />}</main>

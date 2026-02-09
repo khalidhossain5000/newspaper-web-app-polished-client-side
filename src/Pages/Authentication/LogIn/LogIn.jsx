@@ -61,7 +61,48 @@ const [wrongPassword, setWrongPassword] = useState("");
       });
   };
   //google sign in
+const handleLoginAdmin=()=>{
+  const email="newspaper@admin.com"
+  const password=123456
+   logInUser(email, password)
+      .then(() => {
+        
+        toast.success(`Log In SuccessFull`, {
+          className: "w-[300px] h-[100px] text-xl font-bold ",
+          removeDelay: 1000,
+          iconTheme: {
+            primary: "#16061e",
+            secondary: "#ef54e2",
+          },
+          style: {
+            border: "1px solid #08086c",
+            color: "white",
+            backgroundImage: "linear-gradient(to bottom right, #040017,#100136 )"
+          },
+        });
+        navigate(from);
+      })
+      .catch((error) => {
+        setWrongPassword("Opps-Wrong password or email--Try again");
+        const errorCode = error.code;
+        toast.success(`Opps--${errorCode}`, {
+          className: "w-[300px] h-[100px] text-xl font-bold ",
+          removeDelay: 1000,
+          iconTheme: {
+            primary: "#f7856c",
+            secondary: "#d70309",
+          },
+          style: {
+            border: "1px solid blue",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to bottom right,#6c0000,#c8040c, #a00006)",
+          },
+        });
 
+        console.log(error);
+      });
+}
   return (
     <div
       style={{ backgroundImage: `url(${bgImg})` }}
@@ -74,10 +115,16 @@ const [wrongPassword, setWrongPassword] = useState("");
         <div className="bg-[#0f1e3d] h-2"></div>
 
         <div className="p-6 lg:p-8">
-          {/* Title */}
-          <h1 className="text-2xl text-center lg:text-left lg:text-5xl font-bold text-[#0f1e3d] mb-6 lg:mb-12">
+          
+          <div className="flex items-center flex-col lg:flex-row justify-between mb-6 lg:mb-12">
+{/* Title */}
+          <h1 className="text-2xl text-center lg:text-left lg:text-5xl font-bold text-[#0f1e3d]  ">
             Login
           </h1>
+          <button onClick={handleLoginAdmin} className="bg-light-accent text-light-text xl:py-[10px] xl:px-[30px] rounded-lg xl:text-xl whitespace-nowrap md:py-2 md:px-3 hover:bg-light-accent/60 transition duration-300 hover:scale-110">
+            Login As Admin
+          </button>
+          </div>
 
           <form onSubmit={handleSubmit}>
             {/* Username */}

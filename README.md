@@ -12,7 +12,7 @@ With a focus on delivering categorized news enriched by tags and publisher detai
 
 ## 🚀🚀 Live Site :
 https://the-voice-daily-newspaper-polished.netlify.app/
-https://assignment-12-newspaper-full-web-app.netlify.app/allArticles
+
  ## Admin Login Info :
 
  E-mail: newspaper@admin.com
